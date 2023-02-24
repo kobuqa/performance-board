@@ -1,0 +1,68 @@
+{
+  "name": "lg_reborn",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite --mode development --open",
+    "build": "tsc && vite build --mode production",
+    "preview": "vite preview",
+    "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,scss,md,json}\" --config .prettierrc",
+    "eslint": "eslint './**/*.{js,jsx,ts,tsx}' --config .eslintrc --max-warnings=0",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "prettier --write \"./**/*.{js,jsx,ts,tsx,md,json}\" --config .prettierrc",
+      "eslint './**/*.{js,jsx,ts,tsx}' --config .eslintrc --max-warnings=0"
+    ],
+    "src/**/*.{css}": "stylelint --fix",
+    "*.{png,jpeg,jpg,gif,svg}": [
+      "imagemin-lint-staged"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@svgr/rollup": "^6.5.1",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.33.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-boundaries": "^3.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "imagemin-lint-staged": "^0.5.1",
+    "lint-staged": "^13.1.1",
+    "prettier": "^2.8.4",
+    "stylelint": "^15.0.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.0"
+  },
+  "imagemin": {
+    "optipng": {
+      "optimizationLevel": 5
+    }
+  }
+}
